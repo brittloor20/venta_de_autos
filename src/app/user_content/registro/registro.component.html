@@ -1,0 +1,70 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+    <input
+      type="text"
+      placeholder="Name"
+      formControlName="name"
+      class="w-25 form-control"
+      [ngClass]="{
+        'is-invalid': form.get('name')?.invalid && form.get('name')?.touched
+    }"
+    />
+    <span
+      *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+      class="text-danger"
+      >Este campo es necesario y debe tener entre 3 y 50 caracteres</span
+    >
+  
+    <input
+      type="text"
+      placeholder="Username"
+      formControlName="username"
+      class="w-25 form-control"
+      [ngClass]="{
+        'is-invalid':
+          form.get('username')?.invalid && form.get('username')?.touched
+      }"
+    />
+    <span
+      *ngIf="form.get('username')?.invalid && form.get('username')?.touched"
+      class="text-danger"
+      >Este campo es necesario y debe tener entre 3 y 50 caracteres</span
+    >
+  
+<input
+    type="text"
+    placeholder="Password"
+    formControlName="password"
+    class="w-25 form-control"
+    [ngClass]="{
+    'is-invalid':
+    form.get('password')?.invalid && form.get('password')?.touched
+}"/>
+
+<span
+    *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+    class="text-danger"
+>Es es necesario y debe tener entre 3 y 50 caracteres</span>
+
+<input
+    *ngIf="form.value.checkbox"
+    type="text"
+    placeholder="Phone"
+    formControlName="phone"
+    class="w-25 form-control"
+    [ngClass]="{
+    'is-invalid': form.get('phone')?.invalid && form.get('phone')?.touched
+}"/>
+
+<span
+    *ngIf="
+    form.get('phone')?.invalid &&
+    form.get('phone')?.touched &&
+    form.value.checkbox
+    "
+    class="text-danger" >Es necesario y debe tener entre 3 y 50 caracteres
+</span>
+
+<input type="checkbox" formControlName="checkbox" /><span>
+    <button type="submit" class="btn btn-primary">Register</button>
+    Inserta tu número de teléfono</span>
+</form>
